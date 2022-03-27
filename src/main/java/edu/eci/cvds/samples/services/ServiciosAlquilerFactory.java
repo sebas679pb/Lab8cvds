@@ -50,14 +50,12 @@ public class ServiciosAlquilerFactory {
         return optInjector.get().getInstance(ServiciosAlquiler.class);
     }
 
-
     public ServiciosAlquiler getServiciosAlquilerTesting(){
         if (!optInjector.isPresent()) {
             optInjector = Optional.of(myBatisInjector("test","mybatis-config-h2.xml"));
         }
         return optInjector.get().getInstance(ServiciosAlquiler.class);
     }
-
 
     public static ServiciosAlquilerFactory getInstance(){
         return instance;

@@ -1,5 +1,7 @@
 package edu.eci.cvds.sampleprj.dao.mybatis;
 
+import java.util.List;
+
 import com.google.inject.Inject;
 // import com.google.inject.Singleton;
 import edu.eci.cvds.sampleprj.dao.TipoItemDAO;
@@ -32,6 +34,16 @@ public class MyBATISTipoItemDAO implements TipoItemDAO{
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e){
             throw new PersistenceException("Error al consultar el item "+id,e);
+        }
+    }
+
+    @Override
+    public List<TipoItem> consultarTipos() throws PersistenceException {
+        try{
+            return tipoItemMapper.getTiposItems();
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e){
+            throw new PersistenceException("Error al consultar el los tipos de item",e);
         }
     }
 }

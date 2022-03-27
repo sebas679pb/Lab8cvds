@@ -14,4 +14,5 @@ public interface TipoItemMapper {
     
     public void addTipoItem(@Param("des") String des);
 
+    public void insertarTipoItem(@Param ("ti")TipoItem ti);
 }
